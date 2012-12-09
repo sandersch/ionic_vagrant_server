@@ -27,3 +27,4 @@ doc/
 Session.vim
 .netrwhist
 
+.vagrant
