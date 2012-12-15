@@ -65,12 +65,18 @@ Vagrant::Config.run do |config|
   #
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "cookbooks/"
+
     chef.add_recipe "apt"
-    chef.add_recipe "mysql"
+    chef.add_recipe "mysql::server"
     chef.add_recipe "elasticsearch"
 
-    # You may also specify custom JSON attributes:
-    chef.json = { :mysql_password => "foo" }
+    chef.json = {
+      "mysql" => {
+        "server_root_password" => "iloverandompasswordsbutthiswilldo",
+        "server_repl_password" => "iloverandompasswordsbutthiswilldo",
+        "server_debian_password" => "iloverandompasswordsbutthiswilldo"
+      }
+    }
   end
 
   # Enable provisioning with chef server, specifying the chef server URL,
