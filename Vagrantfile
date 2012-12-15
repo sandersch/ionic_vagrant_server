@@ -68,6 +68,7 @@ Vagrant::Config.run do |config|
 
     chef.add_recipe "apt"
     chef.add_recipe "mysql::server"
+    chef.add_recipe "mysql::ruby"
     chef.add_recipe "elasticsearch"
 
     chef.json = {
